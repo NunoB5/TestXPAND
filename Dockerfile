@@ -4,6 +4,12 @@ MAINTAINER nunob5@hotmail.com
 
 RUN mkdir /opt/tomcat/
 
+#copy p12 file location to docker tomcat path
+COPY ./ssl /home/nuno/challenger101/ssl
+
+#Copy updated server.xml to docker
+COPY ./server.xml /home/nuno/challenger101/server.xml
+
 WORKDIR /opt/tomcat
 RUN curl -O https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.28/bin/apache-tomcat-10.1.28.tar.gz
 RUN tar xvfz apache*.tar.gz
